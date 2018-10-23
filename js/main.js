@@ -21,7 +21,6 @@ var game
   // On keydown move paddle
 
   $(document).keydown(function(e) {
-    console.log("Test");
     
   e.preventDefault();
   switch(e.keyCode) {
@@ -35,6 +34,7 @@ var game
     break;
   case 32:
   game.launch()
+  console.log("launch")
   break;
   }
   })

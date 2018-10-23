@@ -6,7 +6,7 @@ class Paddle {
     this.width = width
     this.height = height
     this.movement = null
-    this.speed = 1
+    this.speed = 10
   }
 
   drawPaddle(){

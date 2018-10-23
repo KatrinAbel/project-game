@@ -24,9 +24,10 @@ class Ball {
 
   launchBall(){
   if (this.isStatic()) {
-    this.vx = 5
-    this.vy = - 5
-  }
+    this.vx = 7
+    this.vy = - 7
+    console.log("launchBall")
+    }
   }
 
   top(){return this.y - this.radius}
