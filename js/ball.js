@@ -8,9 +8,11 @@ class Ball {
     this.angle = -Math.PI/2
   }
 
-  vx() {return this.speed*Math.cos(this.angle)}
+  vx() {return this.speed*Math.cos(this.angle)
+  }
 
-  vy_new() {return this.speed*Math.sin(this.angle)}
+  vy_new() {return this.speed*Math.sin(this.angle)
+  }
 
   isStatic(){
     return this.speed === 0
@@ -27,11 +29,26 @@ class Ball {
   left(){return this.x - this.radius}
   right(){return this.x + this.radius}
 
+  // Not working
+  // bounceAdvanced(bubble){
+  //   console.log("bounce", bubble);
+  //   var vectorCollision = {
+  //     x: bubble.x - this.x,
+  //     y: bubble.y - this.y
+  //   }
+  //   var angleCollision = Math.atan2(vectorCollision.y, vectorCollision.x)
+  //   var angleDiff = this.angle - angleCollision
+  //   console.log(this.angle* 180/Math.PI, angleCollision* 180/Math.PI, angleDiff* 180/Math.PI);
+  //   this.angle = -this.angle - 2*angleDiff
+  // }
+  
   bounceHorizontally(){
+    console.log("bounceHorizontally");
     this.angle = -1*this.angle
   }
 
   bounceVertically(){
+    console.log("bounceVertically");
     this.angle = -1*(this.angle-Math.PI/2) + Math.PI/2
   }
   
@@ -45,7 +62,12 @@ class Ball {
     this.ctx.restore()
   }
 
-  updateBall() {
+  updateBall(paddle) {
+    if(this.speed === 0) {
+      this.x = paddle.paddleCenter().x
+      return
+    }
+
     this.x +=this.vx()
 
     this.y +=this.vy_new()

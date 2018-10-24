@@ -86,6 +86,51 @@ function drawStartBox() {
   ctx.restore()
 }
 
+// Lost overlay text input
+
+function drawLostOverlay() {
+  var boxHeight = 300
+  var boxWidth = 700
+
+  ctx.save()
+
+  ctx.fillStyle = "rgba(255,255,255,0.5)"
+  ctx.fillRect(ctx.canvas.width/2-boxWidth/2, ctx.canvas.height/2-boxHeight/2, boxWidth, boxHeight)
+  ctx.restore()
+
+  ctx.fillStyle = "#2f4f4f"
+  ctx.font = "normal small-caps bold 70px helvetica"
+  ctx.textAlign = "center"
+  ctx.fillText("You Lost", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
+  ctx.font = "bold 30px Courier New"
+  ctx.fillText("don't loose your bubbles", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6)
+  ctx.fillText("try again: press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2)
+  ctx.restore()
+}
+
+
+// Won overlay text input
+
+function drawWonOverlay() {
+  var boxHeight = 300
+  var boxWidth = 700
+
+  ctx.save()
+
+  ctx.fillStyle = "rgba(255,255,255,0.5)"
+  ctx.fillRect(ctx.canvas.width/2-boxWidth/2, ctx.canvas.height/2-boxHeight/2, boxWidth, boxHeight)
+  ctx.restore()
+
+  ctx.fillStyle = "#2f4f4f"
+  ctx.font = "normal small-caps bold 70px helvetica"
+  ctx.textAlign = "center"
+  ctx.fillText("You're awesome", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
+  ctx.font = "bold 30px Courier New"
+  ctx.fillText("bubble up", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6)
+  ctx.fillText("press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2)
+  ctx.restore()
+}
+
 
 /*
 darksalmon #e9967a
@@ -96,36 +141,3 @@ orange #ffa500
 gray #808080
 */
 
-
-// Start directory move to different pages
-
-// function goToPage(link) {
-//   $("[data-page]").hide()
-//   $("[data-page="+link+"]").show()
-
-// // Add class active in navbar
-
-//   $('li.nav-item').each(function(){
-//     var href = $(this).find('a.nav-link').attr('href')
-//     if (href === link) 
-//       $(this).addClass('active')
-//     else
-//       $(this).removeClass('active')
-//   })
-// }
-
-// // Listen for click events on <a>
-
-// $("a").click(function (event) {
-//   event.preventDefault();
-//   var href = ($(this).attr("href"))
-//   //goToPage($(this).attr("href"))
-//   goToPage(href);
-// })
-
-// // Return Home when clicking on logo
-
-// $(".navbar-brand").click(function (event) {
-//   event.preventDefault();
-//   goToPage("home");
-// })

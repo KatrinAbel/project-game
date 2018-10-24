@@ -29,11 +29,17 @@ class Paddle {
   right(){return this.x+this.width}
 
   updatePaddle(){
-    if (this.movement === "right") {
-      this.x +=1 *this.speed
+  if (this.movement === "right") {
+    this.x +=1 *this.speed
+      if (this.right() >= this.ctx.canvas.width) {
+        this.x = this.ctx.canvas.width-this.width
+      }
     }
     else if (this.movement === "left") {
-      this.x -=1* this.speed
+    this.x -=1* this.speed 
+      if (this.left() <= 0) {
+        this.x = 0
+      }
     }
   }
 }
