@@ -6,19 +6,27 @@ var height = canvas.height
 var game
 
 // Onload go to Page "play" - for debugging purposes
-  window.onload = function(){
 
-  goToPage("play")
+window.onload = function(){
 
-  // On Play-Button click start the game 
-  $("#play").click(function(e) {
-    console.log(e)
+// Set Interval function for start overlay - functions in pageFunction.js
+
+  var intervalIdOverlay = setInterval(function() {
+  this.ctx.clearRect(0,0, this.ctx.canvas.width, this.ctx.canvas.height)
+  circleAnimation()
+  drawStartBox()
+  },1000/5)
+
+  // Onclick canvas start the game with level 1
+
+  $("#canvas").click(function(e) {
+    clearInterval(intervalIdOverlay)
     e.preventDefault;
     game = new Game(ctx, levels[0].grid);
     game.start()
   })
 
-  // On keydown move paddle
+  // Paddle functionality - on keydown move paddle
 
   $(document).keydown(function(e) {
     
@@ -32,14 +40,14 @@ var game
     game.paddle.movement = "left"
     console.log(game.paddle.movement)
     break;
-  case 32:
-  game.launch()
-  console.log("launch")
-  break;
+    case 32:
+    game.launch()
+    console.log("main-launch")
+    break;
   }
   })
 
-  // On keyup stop paddle
+  // Paddle functionality- on keyup stop paddle
 
   $(document).keyup(function(e) {
     e.preventDefault();

@@ -1,7 +1,21 @@
 canvas {
-    border: 1px solid black;
     max-width: 100%;
-    max-height: 98vh;
+    max-height: 95vh;
     margin: auto;
     display: block;
+    background-color: rgba(255, 255, 255, 0.3)
+}
+
+body {
+    background-image: url("images/bubbles.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+footer {
+    background-color: dimgray;
+    width: 100%;
+    color: white;
+    font-size: 0.8em;
+    padding: 0.4em;
 }

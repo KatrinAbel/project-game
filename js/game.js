@@ -19,7 +19,6 @@ class Game{
     this.ball_radius = bubbleRadius/2
     this.paddle = new Paddle(this.ctx, 300, 30)
     this.balls = [new Ball(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height-this.paddle.height-this.ball_radius, this.ball_radius)]
-    console.log(this.balls)
     this.life = 3
   }
 
@@ -27,6 +26,7 @@ class Game{
     for (var i = 0; i < this.balls.length; i++) {
       this.balls[i].launchBall()
     }
+    console.log("game-launch")
   }
 
   drawEverything(){
@@ -45,12 +45,11 @@ class Game{
   this.paddle.updatePaddle()
   for (var iBall = 0; iBall < this.balls.length; iBall++) {
     this.balls[iBall].updateBall()
-    this.checkCollisionPaddleBall()
+    this.checkCollisionPaddleBall(this.balls[iBall], this.paddle)
     for (var iBubble = this.bubbles.length-1; iBubble >=0; iBubble--) {
-      if (this.checkCollisionBubbleBall(this.balls[iBall], this.bubbles[iBubble])) {
+      if (this.checkCollisionBubbleBall(this.balls[iBall], this.bubbles[iBubble]) === true) {
         console.log("Delete")
         this.bubbles.splice(iBubble, 1)
-        this.balls[iBall].vy *=-1
       }
     }
   }
@@ -58,20 +57,25 @@ class Game{
   this.ballsAreLife()
   }
   
-  checkCollisionPaddleBall() {
-  for (var i = 0; i < this.balls.length; i++)
-    if (this.paddle.top() <= this.balls[i].bottom() && 
-      this.paddle.right() >= this.balls[i].left() && 
-      this.paddle.left() <= this.balls[i].right()) {
-      this.balls[i].vy *=-1
-    }
+  checkCollisionPaddleBall(ball, paddle) {
+    if (paddle.left() < ball.x && ball.x < paddle.right() && paddle.top() < ball.bottom() && ball.y < paddle.top()) {
+      var factor = 2*(ball.x-paddle.paddleCenter().x)/paddle.width // Number between -1 and 1
+      var maxAngle = 0.9*Math.PI/2
+      var paddleAngle = -Math.PI/2 + factor*maxAngle
+      ball.angle = (-ball.angle + paddleAngle) / 2
+      ball.y = paddle.top() - ball.radius
+  }
   }
   
   checkCollisionBubbleBall(ball, bubble) {
   var d = (Math.sqrt((ball.x-bubble.x)**2+(ball.y-bubble.y)**2)) 
     if (d < ball.radius + bubble.radius) {
+      ball.bounceHorizontally()
       return true
     }
+    else {
+      ball.bounceVertically()
+      return false}
   }
   
   start(){
@@ -91,15 +95,16 @@ class Game{
 
   drawLives() {
   this.ctx.save()
+  this.ctx.fillStyle = "rgb(47,79,79)"
   this.ctx.font = "30px sans-serif"
   this.ctx.textAlign = "right"
-  this.ctx.fillText("Lives: "+ this.life, this.ctx.canvas.width-50, this.ctx.canvas.height-(this.ctx.canvas.height-50))
+  this.ctx.fillText("Lives: "+ this.life, this.ctx.canvas.width-50, this.ctx.canvas.height-50)
   this.ctx.restore()
   }
 
   ballsAreLife(){
   if (this.balls.length === 0) {
-    this.balls.push(new Ball((this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height-this.paddle.height-this.ball_radius, this.ball_radius)))
+    this.balls.push(new Ball(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height-this.paddle.height-this.ball_radius, this.ball_radius))
     console.log("new ball")
     this.life -=1
     console.log(this.life)

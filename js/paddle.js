@@ -10,10 +10,10 @@ class Paddle {
   }
 
   drawPaddle(){
-    ctx.save()
-    this.ctx.fillStyle = "black"
+    this.ctx.save()
+    this.ctx.fillStyle = "darkslategray"
     this.ctx.fillRect(this.x, this.y, this.width, this.height)
-    ctx.restore()
+    this.ctx.restore()
   }
 
   paddleCenter(){
