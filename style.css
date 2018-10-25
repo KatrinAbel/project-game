@@ -7,6 +7,13 @@ canvas {
     background-color: rgba(255, 255, 255, 0.3)
 }
 
+.explanation {
+    text-align: right;
+    color: white;
+    font-size: 0.8em;
+    margin-right: 
+}
+
 body {
     background-image: url("images/confetti.jpg");
     background-size: cover;
@@ -94,6 +101,13 @@ footer {
     padding: 0.5em 1em;
 }
 
+@media only screen and (min-width: 1300px) {
+    footer {
+        position: fixed !important;
+        bottom: 0;
+    }
+}
+
 .callingHeart {
     font-family: CallingHeart;
     font-size: 1.5em;
@@ -104,7 +118,7 @@ footer {
 @font-face {
     font-family: CallingHeart;
     src: url(fonts/CallingHeart.ttf)
-  }
+}
 
 @font-face {
 font-family: GeoSansLight;

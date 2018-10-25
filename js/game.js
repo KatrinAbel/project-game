@@ -41,6 +41,7 @@ class Game {
 
   drawEverything() {
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    this.drawExplanation();
     this.paddle.drawPaddle();
     for (var i = 0; i < this.balls.length; i++) {
       this.balls[i].drawBall();
@@ -153,8 +154,8 @@ class Game {
     this.ctx.font = "bold 30px helvetica";
     this.ctx.textAlign = "right";
     this.ctx.fillText(
-      "yours to risk: " + this.life,
-      this.ctx.canvas.width - 50,
+      "YOLTT*: " + this.life,
+      this.ctx.canvas.width - 100,
       this.ctx.canvas.height - 50
     );
     this.ctx.restore();
@@ -172,11 +173,19 @@ class Game {
     this.ctx.font = "bold 30px helvetica";
     this.ctx.textAlign = "left";
     this.ctx.fillText(
-      "relax level: " + highscore,
+      "ZEN STATUS: " + highscore,
       50,
       this.ctx.canvas.height - 50
     );
     this.ctx.restore();
+  }
+
+  drawExplanation(){
+    this.ctx.save()
+    this.ctx.fillStyle = "rgb(255,255,255)"
+    this.ctx.font = "20px GeoSansLight"
+    this.ctx.fillText("*you only live three times", this.ctx.canvas.width-100, this.ctx.canvas.height-5)
+    this.ctx.restore()
   }
   
   // Currently not called anywhere 

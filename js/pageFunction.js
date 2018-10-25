@@ -26,11 +26,11 @@ $("a").click(function (event) {
 
 // Return Home when clicking on logo
 
-$(".navbar-brand").click(function (event) {
+$("#home").click(function (event) {
   event.preventDefault();
-  goToPage("play");
+  goToPage("play")
+  location.reload();
 })
-
 
 var color = ["#f5f4e8", "#c50d66", "#f07810", "#eec60a"]
 

@@ -18,9 +18,6 @@ var levels = [{
 
 // Random array creator 
 
-// Level Generator
-// 1: 2,20 2: 3,15, 3: 4, 25
-
 function createLevel(numRow, numEl) {
   var level = []
   for (var row = 0; row <= numRow; row++) {
