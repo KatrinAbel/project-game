@@ -43,12 +43,10 @@ class Ball {
   // }
   
   bounceHorizontally(){
-    console.log("bounceHorizontally");
     this.angle = -1*this.angle
   }
 
   bounceVertically(){
-    console.log("bounceVertically");
     this.angle = -1*(this.angle-Math.PI/2) + Math.PI/2
   }
   

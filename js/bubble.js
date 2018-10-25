@@ -1,6 +1,4 @@
-var colors = [
-  "rgb(205,92,92)", "rgb(188,143,143)" , "rgb(255,228,225)"
-]
+var colors = ["#f38181", "#fce38a", "#eaffd0", "#95e1d3"]
 
 class Bubble {
   constructor(ctx, x, y, radius){
@@ -9,21 +7,22 @@ class Bubble {
     this.y = y
     this.radius = radius
   }
+
   drawBubble() {
     this.ctx.beginPath()
-    this.ctx.fillStyle = "rgb(188,143,143)"
-    //colors[Math.floor(Math.random()*(colors.length-1))]
+    this.ctx.fillStyle = "rgba(255,255,255,0.5)"
+    this.ctx.strokeStyle = colors[Math.floor(Math.random()*(colors.length-1))]
     this.ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI, true)
     this.ctx.closePath()
     this.ctx.fill()
+    this.ctx.stroke()
     this.ctx.restore()
   }
 
   deleteBubble(){
     this.ctx.beginPath()
-    this.ctx.fillStyle = "rgba(255,255,255,1)"
-    this.ctx.strokeStyle = "rgb(188,143,143)"
-    //colors[Math.floor(Math.random()*(colors.length-1))]
+    this.ctx.fillStyle = colors[Math.floor(Math.random()*(colors.length-1))]
+    this.ctx.strokeStyle = colors[Math.floor(Math.random()*(colors.length-1))]
     this.ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI, true)
     this.ctx.fill()
     this.ctx.closePath()

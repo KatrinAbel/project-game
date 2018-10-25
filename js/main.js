@@ -4,6 +4,7 @@ var ctx = canvas.getContext("2d");
 var width = canvas.width;
 var height = canvas.height;
 var game;
+var levels;
 
 
 window.onload = function() {
@@ -31,9 +32,9 @@ window.onload = function() {
 
     //Start or restart the game
     if (!game || (game && game.life === 0)) {
-      game = new Game(ctx, levels[0].grid, 200);
+      game = new Game(ctx, levels[0].grid, levels[0].name, 200);
       game.start()
-      
+      console.log( "start or restart", game.name)
       $(document).off("keydown");
 
       // Paddle functionality - on keydown move paddle
@@ -42,25 +43,22 @@ window.onload = function() {
         switch (e.keyCode) {
           case 39:
             game.paddle.movement = "right";
-            console.log(game.paddle.movement);
             break;
           case 37:
             game.paddle.movement = "left";
-            console.log(game.paddle.movement);
             break;
           case 32:
             game.launch();
-            console.log("main-launch");
             break;
         }
       });
     }
 
-    //Level up
-    if (game && game.bubbles.length === 0) {
-      game = new Game(ctx, levels[1].grid, 100);
+    //Level up - 2
+    if (game && game.bubbles.length === 0 && game.name === "Level 1" ) {
+      game = new Game(ctx, levels[1].grid, levels[1].name, 150);
       game.start()
-      
+      console.log("level-up 2", game.name)
       $(document).off("keydown");
 
       // Paddle functionality - on keydown move paddle
@@ -69,22 +67,41 @@ window.onload = function() {
         switch (e.keyCode) {
           case 39:
             game.paddle.movement = "right";
-            console.log(game.paddle.movement);
             break;
           case 37:
             game.paddle.movement = "left";
-            console.log(game.paddle.movement);
             break;
           case 32:
             game.launch();
-            console.log("main-launch");
             break;
         }
       });
     }
+
+  // //Level up - 3
+  if (game && game.bubbles.length === 0 && game.name === "Level 2") {
+    game = new Game(ctx, levels[2].grid, levels[2].name, 100);
+    game.start()
+    console.log("level-up 3", game.name)
+    $(document).off("keydown");
+
+    // Paddle functionality - on keydown move paddle
+    $(document).keydown(function(e) {
+      e.preventDefault();
+      switch (e.keyCode) {
+        case 39:
+          break;
+        case 37:
+          break;
+        case 32:
+          game.launch();
+          break;
+      }
+    });
+  }
+  
+  // Closing of canvas onclick function
   });
-
-
 
   // Paddle functionality- on keyup stop paddle
 
@@ -97,4 +114,6 @@ window.onload = function() {
         break;
     }
   });
-};
+
+// Close window-onload function
+}

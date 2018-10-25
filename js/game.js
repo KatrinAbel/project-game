@@ -1,7 +1,7 @@
 class Game {
-  constructor(ctx, grid, paddle_Width) {
+  constructor(ctx, grid, levelName, paddle_Width) {
     this.ctx = ctx;
-    //this.numEl = numEl
+    this.name = levelName;
     this.paddle_Width = paddle_Width;
     this.bubbles = [];
     // Creation of bubbles based on level grid
@@ -75,12 +75,16 @@ class Game {
       if (this.life === 0) {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         drawLostOverlay();
+        // var cough = new sound("../sound/hack.mp3");
+        // cough.play();
       }
 
       //If won - draw wonOverlay
       if (this.bubbles.length === 0) {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         drawWonOverlay();
+        //var applause = new sound("../sound/claps3.mp3");
+        //applause.play();
       }
     }
 
@@ -136,11 +140,11 @@ class Game {
 
   drawLives() {
     this.ctx.save();
-    this.ctx.fillStyle = "rgb(47,79,79)";
-    this.ctx.font = "30px helvetica";
+    this.ctx.fillStyle = "rgb(255, 255, 255)";
+    this.ctx.font = "small-caps bold 30px helvetica";
     this.ctx.textAlign = "right";
     this.ctx.fillText(
-      "Lives: " + this.life,
+      "Yours to risk: " + this.life,
       this.ctx.canvas.width - 50,
       this.ctx.canvas.height - 50
     );

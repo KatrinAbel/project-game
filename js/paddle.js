@@ -11,8 +11,10 @@ class Paddle {
 
   drawPaddle(){
     this.ctx.save()
-    this.ctx.fillStyle = "darkslategray"
+    this.ctx.fillStyle = "#f38181"
+    this.ctx.strokeStyle= "slatergray"
     this.ctx.fillRect(this.x, this.y, this.width, this.height)
+    this.ctx.stroke()
     this.ctx.restore()
   }
 

@@ -1,12 +1,9 @@
-// Farbschema hell
-//  var colors = [
-//   "#e9967a", "#8fbc8f", "#2f4f4f", "#5f9ea0", "#ffa500", "#808080"
-// ]
+// Color scheme dark - bubble background
+// var colors = [
+//   "rgb(205,92,92)", "rgb(188,143,143)" , "rgb(255,228,225)", "rgb(128,0,0)", "rgb(255,140,0)"
+// 
 
-// Farbschema dunkel
-var colors = [
-  "rgb(205,92,92)", "rgb(188,143,143)" , "rgb(255,228,225)", "rgb(128,0,0)", "rgb(255,140,0)"
-]
+var colors = ["#f38181", "#fce38a", "#eaffd0", "#95e1d3"]
 
 // Start overlay animation circles
 
@@ -102,9 +99,17 @@ function drawLostOverlay() {
   ctx.font = "normal small-caps bold 70px helvetica"
   ctx.textAlign = "center"
   ctx.fillText("You Lost", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
-  ctx.font = "bold 30px Courier New"
-  ctx.fillText("don't loose your bubbles", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6)
-  ctx.fillText("try again: press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2)
+  ctx.font = "bold 25px Courier New"
+  ctx.fillText("don't loose your bubbles", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6, boxWidth)
+  ctx.fillText("try again: press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2, boxWidth-50)
+  ctx.restore()
+
+  ctx.strokeSTyle = "#808080"
+  ctx.beginPath()
+  ctx.moveTo(ctx.canvas.width/2-boxWidth/2+100, ctx.canvas.height/2)
+  ctx.lineTo(ctx.canvas.width/2+boxWidth/2-100, ctx.canvas.height/2)
+  ctx.closePath()
+  ctx.stroke()
   ctx.restore()
 }
 
@@ -125,19 +130,18 @@ function drawWonOverlay() {
   ctx.font = "normal small-caps bold 70px helvetica"
   ctx.textAlign = "center"
   ctx.fillText("You're awesome", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
-  ctx.font = "bold 30px Courier New"
-  ctx.fillText("bubble up", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6)
-  ctx.fillText("press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2)
+  ctx.font = "bold 25px Courier New"
+  ctx.fillText("so bubble up for a wild ride", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6, boxWidth)
+  ctx.fillText("press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2, boxWidth)
+  ctx.restore()
+
+  ctx.strokeSTyle = "#808080"
+  ctx.beginPath()
+  ctx.moveTo(ctx.canvas.width/2-boxWidth/2+100, ctx.canvas.height/2)
+  ctx.lineTo(ctx.canvas.width/2+boxWidth/2-100, ctx.canvas.height/2)
+  ctx.closePath()
+  ctx.stroke()
   ctx.restore()
 }
 
-
-/*
-darksalmon #e9967a
-darkseagreen #8fbc8f
-darkslatergray #2f4f4f
-cadetblue #5f9ea0
-orange #ffa500
-gray #808080
-*/
 
