@@ -8,15 +8,43 @@ canvas {
 }
 
 body {
-    background-image: url("images/bubbleGun.jpg");
+    background-image: url("images/confetti.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 footer {
+    clear: both;
     background-color: dimgray;
     width: 100%;
     color: white;
     font-size: 0.8em;
     padding: 0.4em;
+    position: absolute;
+}
+
+.logo {
+ font-family: CallingHeart;
+ font-size: 3em;
+}
+
+.li-design {
+    font-family: GeoSansLight;
+    font-size: 1.5em;
+}
+
+
+@font-face {
+    font-family: CallingHeart;
+    src: url(fonts/CallingHeart.ttf)
+  }
+
+@font-face {
+font-family: RobotoThin;
+src: url(fonts/Roboto-Thin.ttf)
+}
+
+@font-face {
+font-family: GeoSansLight;
+src: url(fonts/GeosansLight.ttf)
 }

@@ -140,7 +140,13 @@ class Game {
 
   drawLives() {
     this.ctx.save();
-    this.ctx.fillStyle = "rgb(255, 255, 255)";
+    this.ctx.fillRect(
+      this.ctx.canvas.width - 350,
+      this.ctx.canvas.height - 85,
+      350,
+      50
+    )
+    this.ctx.fillStyle = "slategray";
     this.ctx.font = "small-caps bold 30px helvetica";
     this.ctx.textAlign = "right";
     this.ctx.fillText(

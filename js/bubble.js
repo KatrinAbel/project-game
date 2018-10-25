@@ -1,4 +1,4 @@
-var colors = ["#f38181", "#fce38a", "#eaffd0", "#95e1d3"]
+var colors = ["#f5f4e8", "#c50d66", "#f07810", "#eec60a"]
 
 class Bubble {
   constructor(ctx, x, y, radius){

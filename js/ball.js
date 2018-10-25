@@ -53,7 +53,7 @@ class Ball {
   drawBall() {
     this.ctx.save()
     this.ctx.beginPath()
-    this.ctx.fillStyle = "darkslategray"
+    this.ctx.fillStyle = "#eec60a"
     this.ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI, true)
     this.ctx.closePath()
     this.ctx.fill()

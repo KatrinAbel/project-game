@@ -9,6 +9,8 @@ var levels;
 
 window.onload = function() {
 
+  goToPage("play")
+
   // Set Interval function for start overlay - functions in pageFunction.js
 
   var intervalIdOverlay = setInterval(function() {

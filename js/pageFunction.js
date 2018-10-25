@@ -1,9 +1,38 @@
-// Color scheme dark - bubble background
-// var colors = [
-//   "rgb(205,92,92)", "rgb(188,143,143)" , "rgb(255,228,225)", "rgb(128,0,0)", "rgb(255,140,0)"
-// 
+// Start directory move to different pages
 
-var colors = ["#f38181", "#fce38a", "#eaffd0", "#95e1d3"]
+function goToPage(link) {
+  $("[data-page]").hide()
+  $("[data-page="+link+"]").show()
+
+// Add class active in navbar
+
+  $('li.nav-item').each(function(){
+    var href = $(this).find('a.nav-link').attr('href')
+    if (href === link) 
+      $(this).addClass('active')
+    else
+      $(this).removeClass('active')
+  })
+}
+
+// Listen for click events on <a>
+
+$("a").click(function (event) {
+  event.preventDefault();
+  var href = ($(this).attr("href"))
+  //goToPage($(this).attr("href"))
+  goToPage(href);
+})
+
+// Return Home when clicking on logo
+
+$(".navbar-brand").click(function (event) {
+  event.preventDefault();
+  goToPage("play");
+})
+
+
+var color = ["#f5f4e8", "#c50d66", "#f07810", "#eec60a"]
 
 // Start overlay animation circles
 
@@ -66,15 +95,15 @@ function drawStartBox() {
   ctx.restore()
 
   ctx.fillStyle = "#2f4f4f"
-  ctx.font = "normal small-caps bold 70px helvetica"
+  ctx.font = "normal bold 70px CallingHeart"
   ctx.textAlign = "center"
-  ctx.fillText("BUBBLE TROUBLE", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
-  ctx.font = "bold 30px Courier New"
+  ctx.fillText("Bubble Trouble", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
+  ctx.font = "bold 30px GeoSansLight"
   ctx.fillText("bubble up your game", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6)
   ctx.fillText("press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2)
   ctx.restore()
 
-  ctx.strokeSTyle = "#808080"
+  ctx.strokeStyle = "#c50d66"
   ctx.beginPath()
   ctx.moveTo(ctx.canvas.width/2-boxWidth/2+100, ctx.canvas.height/2)
   ctx.lineTo(ctx.canvas.width/2+boxWidth/2-100, ctx.canvas.height/2)
@@ -96,15 +125,15 @@ function drawLostOverlay() {
   ctx.restore()
 
   ctx.fillStyle = "#2f4f4f"
-  ctx.font = "normal small-caps bold 70px helvetica"
+  ctx.font = "normal bold 70px CallingHeart"
   ctx.textAlign = "center"
-  ctx.fillText("You Lost", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
-  ctx.font = "bold 25px Courier New"
+  ctx.fillText("Well...", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
+  ctx.font = "bold 25px GeoSansLight"
   ctx.fillText("don't loose your bubbles", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6, boxWidth)
   ctx.fillText("try again: press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2, boxWidth-50)
   ctx.restore()
 
-  ctx.strokeSTyle = "#808080"
+  ctx.strokeStyle = "#c50d66"
   ctx.beginPath()
   ctx.moveTo(ctx.canvas.width/2-boxWidth/2+100, ctx.canvas.height/2)
   ctx.lineTo(ctx.canvas.width/2+boxWidth/2-100, ctx.canvas.height/2)
@@ -127,15 +156,15 @@ function drawWonOverlay() {
   ctx.restore()
 
   ctx.fillStyle = "#2f4f4f"
-  ctx.font = "normal small-caps bold 70px helvetica"
+  ctx.font = "normal bold 70px CallingHeart"
   ctx.textAlign = "center"
-  ctx.fillText("You're awesome", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
-  ctx.font = "bold 25px Courier New"
+  ctx.fillText("You're awesome!", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
+  ctx.font = "bold 25px GeoSansLight"
   ctx.fillText("so bubble up for a wild ride", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6, boxWidth)
   ctx.fillText("press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2, boxWidth)
   ctx.restore()
 
-  ctx.strokeSTyle = "#808080"
+  ctx.strokeStyle = "#c50d66"
   ctx.beginPath()
   ctx.moveTo(ctx.canvas.width/2-boxWidth/2+100, ctx.canvas.height/2)
   ctx.lineTo(ctx.canvas.width/2+boxWidth/2-100, ctx.canvas.height/2)
