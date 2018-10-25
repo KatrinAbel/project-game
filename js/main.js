@@ -8,7 +8,7 @@ var highscore = 0
 
 
 window.onload = function() {
-
+ 
   goToPage("play")
 
   // Set Interval function for start overlay - functions in pageFunction.js
@@ -20,12 +20,13 @@ window.onload = function() {
   }, 1000 / 5);
 
   // Onclick canvas start the game with level 1
-
+  
   $("#canvas").on("click", function(e) {
 
     //Clear start screen and initialize first game
     clearInterval(intervalIdOverlay);
     e.preventDefault();
+
 
     //If there is a game and game life is 0 stop the game first
     if (game && game.life === 0 || game && game.bubbles.length === 0) {

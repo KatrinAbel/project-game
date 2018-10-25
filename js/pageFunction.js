@@ -128,7 +128,7 @@ function drawLostOverlay() {
   ctx.font = "normal bold 70px CallingHeart"
   ctx.textAlign = "center"
   ctx.fillText("Well...", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
-  ctx.font = "bold 25px GeoSansLight"
+  ctx.font = "bold 30px GeoSansLight"
   ctx.fillText("don't loose your bubbles", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6, boxWidth)
   ctx.fillText("try again: press space to launch and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2, boxWidth-50)
   ctx.restore()
@@ -159,8 +159,8 @@ function drawWonOverlay() {
   ctx.font = "normal bold 70px CallingHeart"
   ctx.textAlign = "center"
   ctx.fillText("You're awesome!", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
-  ctx.font = "bold 25px GeoSansLight"
-  ctx.fillText("so bubble up for a wild ride", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6, boxWidth)
+  ctx.font = "bold 30px GeoSansLight"
+  ctx.fillText("... now bubble up for a wild ride", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6, boxWidth)
   ctx.fillText("press space to launch and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2, boxWidth)
   ctx.restore()
 

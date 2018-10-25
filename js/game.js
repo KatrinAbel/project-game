@@ -178,6 +178,15 @@ class Game {
     );
     this.ctx.restore();
   }
+  
+  // Currently not called anywhere 
+  sound(){
+    if (this.life === 0) {
+    console.log("test");
+     var cough = new sound("../sound/hack.mp3");
+    cough.play();
+    }
+  }
 
   // On loss of ball 1) Push new ball 2) Deduct life and 3) Return paddle to middle of canvas
   ballsAreLife() {
