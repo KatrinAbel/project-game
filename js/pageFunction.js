@@ -100,7 +100,7 @@ function drawStartBox() {
   ctx.fillText("Bubble Trouble", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
   ctx.font = "bold 30px GeoSansLight"
   ctx.fillText("bubble up your game", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6)
-  ctx.fillText("press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2)
+  ctx.fillText("press space to launch and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2)
   ctx.restore()
 
   ctx.strokeStyle = "#c50d66"
@@ -130,7 +130,7 @@ function drawLostOverlay() {
   ctx.fillText("Well...", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
   ctx.font = "bold 25px GeoSansLight"
   ctx.fillText("don't loose your bubbles", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6, boxWidth)
-  ctx.fillText("try again: press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2, boxWidth-50)
+  ctx.fillText("try again: press space to launch and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2, boxWidth-50)
   ctx.restore()
 
   ctx.strokeStyle = "#c50d66"
@@ -161,7 +161,7 @@ function drawWonOverlay() {
   ctx.fillText("You're awesome!", ctx.canvas.width/2, ctx.canvas.height/2 - boxHeight/6)
   ctx.font = "bold 25px GeoSansLight"
   ctx.fillText("so bubble up for a wild ride", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6, boxWidth)
-  ctx.fillText("press space to start and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2, boxWidth)
+  ctx.fillText("press space to launch and < > to move", ctx.canvas.width/2, ctx.canvas.height/2 + boxHeight/6*2, boxWidth)
   ctx.restore()
 
   ctx.strokeStyle = "#c50d66"

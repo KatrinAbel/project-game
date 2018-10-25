@@ -92,8 +92,10 @@ window.onload = function() {
       e.preventDefault();
       switch (e.keyCode) {
         case 39:
+          game.paddle.movement = "right";
           break;
         case 37:
+          game.paddle.movement = "left";
           break;
         case 32:
           game.launch();

@@ -20,7 +20,7 @@ class Ball {
   
   launchBall(){
     if (this.isStatic()) {
-      this.speed = 10
+      this.speed = 13
     }
   }
 
