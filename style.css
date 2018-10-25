@@ -33,16 +33,63 @@ footer {
     font-size: 1.5em;
 }
 
+.textbox {
+    width: 60%;
+    margin: 3em auto;
+    background-color: rgba(255,255,255, 0.4);
+    color: black;
+    padding: 3em;
+}
+
+.heading1 {
+    color: white;
+    font-family: GeoSansLight;
+    font-size: 2em;
+    font-weight: bolder;
+    padding-bottom: 0.2em;
+}
+
+.heading2 {
+    color: white;
+    font-family: GeoSansLight;
+    font-size: 1.4em;
+    font-weight: bolder;
+    padding-bottom: 0.2em;
+}
+
+.article {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+.quote {
+    background-color: rgba(238, 198, 10, 0.7);
+    color: white;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1.8em;
+}
+
+.hashtag {
+    font-family: CallingHeart;
+    font-size: 2em;
+    padding-top: 3em;
+}
+
+a {
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    text-align: right;
+    text-decoration: none;
+}
 
 @font-face {
     font-family: CallingHeart;
     src: url(fonts/CallingHeart.ttf)
   }
-
-@font-face {
-font-family: RobotoThin;
-src: url(fonts/Roboto-Thin.ttf)
-}
 
 @font-face {
 font-family: GeoSansLight;
