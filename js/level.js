@@ -1,6 +1,6 @@
 var levels = [{
-  name: "Level 1",
-  grid: createLevel(2, 10)
+    name: "Level 1",
+    grid: createLevel(2, 10)
   },
   {
     name: "Level 2",
@@ -8,7 +8,11 @@ var levels = [{
   },
   {
     name: "Level 3",
-    grid: createLevel(4,20)
+    grid: createLevel(4,15)
+  },
+  {
+    name: "Level 4",
+    grid: createLevel(5,20)
   }
 ] 
 

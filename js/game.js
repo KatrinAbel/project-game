@@ -49,6 +49,7 @@ class Game {
       this.bubbles[i].drawBubble();
     }
     this.drawLives();
+    this.drawHighScore();
   }
 
   update() {
@@ -66,6 +67,7 @@ class Game {
           console.log("Delete");
           this.bubbles[iBubble].deleteBubble();
           this.bubbles.splice(iBubble, 1);
+          highscore +=1
           var popBubbleSound = new sound("../sound/bubble_pop.mp3");
           popBubbleSound.play();
         }
@@ -75,6 +77,7 @@ class Game {
       if (this.life === 0) {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         drawLostOverlay();
+        highscore = 0
         // var cough = new sound("../sound/hack.mp3");
         // cough.play();
       }
@@ -147,11 +150,30 @@ class Game {
       50
     )
     this.ctx.fillStyle = "slategray";
-    this.ctx.font = "small-caps bold 30px helvetica";
+    this.ctx.font = "bold 30px helvetica";
     this.ctx.textAlign = "right";
     this.ctx.fillText(
-      "Yours to risk: " + this.life,
+      "yours to risk: " + this.life,
       this.ctx.canvas.width - 50,
+      this.ctx.canvas.height - 50
+    );
+    this.ctx.restore();
+  }
+
+  drawHighScore(){
+    this.ctx.save();
+    this.ctx.fillRect(
+      0,
+      this.ctx.canvas.height - 85,
+      350,
+      50
+    )
+    this.ctx.fillStyle = "slategray";
+    this.ctx.font = "bold 30px helvetica";
+    this.ctx.textAlign = "left";
+    this.ctx.fillText(
+      "relax level: " + highscore,
+      50,
       this.ctx.canvas.height - 50
     );
     this.ctx.restore();
