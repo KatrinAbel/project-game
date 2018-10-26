@@ -69,7 +69,7 @@ class Game {
           this.bubbles[iBubble].deleteBubble();
           this.bubbles.splice(iBubble, 1);
           highscore +=1
-          var popBubbleSound = new sound("../sound/bubble_pop.mp3");
+          var popBubbleSound = new sound("https://raw.githubusercontent.com/KatrinAbel/project-game-bubble-trouble/master/sound/bubble_pop.mp3");
           popBubbleSound.play();
         }
       }
